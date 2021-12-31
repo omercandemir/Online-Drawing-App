@@ -38,24 +38,24 @@ function drawLine(x0, y0, x1, y1, color, emit) {
         y0: y0 / h,
         x1: x1 / w,
         y1: y1 / h,
-        color
+        color: color
     });
 }
 
-function maouseDown(e) {
+function onMouseDown(e) {
     drawing = true;
     current.x = e.clientX || e.touches[0].clientX;
     current.y = e.clientY || e.touches[0].clientY;
 }
 
-function maouseUp(e) {
+function onMouseUp(e) {
     if (!drawing) {
         return;
     }
     drawing = false;
 }
 
-function maouseMove(e) {
+function onMouseMove(e) {
     if (!drawing) {
         return;
     }
