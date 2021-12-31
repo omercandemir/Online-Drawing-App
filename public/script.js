@@ -33,12 +33,12 @@ function drawLine(x0, y0, x1, y1, color, emit) {
     var w = canvas.width;
     var h = canvas.height;
 
-    socket.emit("drawing", {
+    socket.emit("drawing", { // kullanıcıza çizimimi gönderme
         x0: x0 / w,
         y0: y0 / h,
         x1: x1 / w,
         y1: y1 / h,
-        color: color
+        color
     });
 
 }
@@ -92,11 +92,11 @@ function onResize()
 window.addEventListener("resize", onResize, false);
 onResize();
 
-function onDrawingEvent(data) {
+function onDrawingEvent(data) { // karşıdan gelen çizim
     var w = canvas.width;
     var h = canvas.height;
 
     drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
 };
 
-socket.on("drawing", onDrawingEvent);
+socket.on("drawing", onDrawingEvent); // karşıdan gelen çizimi alma
