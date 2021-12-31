@@ -2,10 +2,8 @@ const express = require("express");
 const app = express();
 const port = 5000;
 
-app.get("/", (req, res) => {
-    res.json("Server was successfully started.");
-});
+app.use("/", express.static(__dirname + '/public'));
 
 app.listen(port, () => {
-    console.log("Server started in port: " + port);
+    console.log("Server starting from: http://127.0.0.1:" + port);
 });
